@@ -112,7 +112,7 @@ def training_network(sess, network, train, val, path_save, nb_epochs):
         print("Iter: {}, Loss: {:.4f}".format(eidx, tot_loss / n_batches))
 
         # Early stopping
-        if not eidx % 5:
+        if not eidx % 10:
             print("Early stopping")
             loss, prediction, reference = test_network(sess, network, val)
             correlation = calculate_correlation(prediction, reference)
