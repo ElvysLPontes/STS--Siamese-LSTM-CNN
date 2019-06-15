@@ -32,7 +32,7 @@ parser.add_argument("--hidden_size", type=int, default=50,
                     help="Hidden layer size.")
 parser.add_argument("--forget_bias", type=str, default=2.5,
                     help="Forget bias.")
-parser.add_argument("--learning_rate", type=float, default=0.01,
+parser.add_argument("--learning_rate", type=float, default=0.1,
                     help="Learning rate.")
 parser.add_argument("--number_layers", type=int, default=1,
                     help="Number of layers.")
