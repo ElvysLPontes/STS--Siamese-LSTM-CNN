@@ -45,7 +45,7 @@ options:
             default : 66
   --nb_epochs
             Number of epochs (type : int)
-            default : 101
+            default : 301
   --max_length
             Max sentence length (type : int), 
             default : 50
