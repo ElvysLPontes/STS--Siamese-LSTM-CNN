@@ -1,9 +1,7 @@
-tensorflow
+tensorflow==1.4
 tqdm
 numpy
 scipy
-pickle
 nltk
-pickle
 gensim
 random
