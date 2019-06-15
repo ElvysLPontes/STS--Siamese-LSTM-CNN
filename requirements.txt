@@ -1,0 +1,9 @@
+tensorflow
+tqdm
+numpy
+scipy
+pickle
+nltk
+pickle
+gensim
+random
