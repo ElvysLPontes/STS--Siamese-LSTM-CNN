@@ -12,14 +12,17 @@ We analyze the words in two perspectives: general and local contexts. Words are 
 
 ## Data:
 ------------------------
-Download the word2vec model from https://code.google.com/archive/p/word2vec/ and download the file: GoogleNews-vectors-negative300.bin.gz
+Download the pre-trained word and phrase vectors model "GoogleNews-vectors-negative300.bin.gz" from https://code.google.com/archive/p/word2vec/ and put this file in the folder "data".
 
 We reused the approach of Mueller and Thyagarajan to expand the SICK dataset. https://github.com/aditya1503/Siamese-LSTM
 
 ## How to run
 
 ```
-$ python main.py [options/defaults]
+$ virtualenv -p python3 virtualenv
+$ source virtualenv/bin/activate
+$ pip install -r requirements.txt 
+$ python modules/main.py [options/defaults]
 
 options:
   --bool_load_model 
