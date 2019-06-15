@@ -54,7 +54,7 @@ options:
             default : 2.5
   --learning_rate
             Learning rate (type : float)
-            default : 0.01
+            default : 0.1
   --number_layers
             Number of layers (type : int)
             default : 1
