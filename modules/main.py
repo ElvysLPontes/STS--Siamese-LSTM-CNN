@@ -165,7 +165,8 @@ def main():
         # Initialize variables
         sess.run(network.initialize_variables)
         if args.bool_load_model:
-            pass
+            network.saver.restore(sess, path_save)
+            print("Model restored!")
         if args.bool_pretrain:
             # Pretraining network
             print("Pretraining network ...")
