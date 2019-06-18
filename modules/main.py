@@ -167,7 +167,7 @@ def main():
     with tf.Session() as sess:
         # Initialize variables
         sess.run(network.initialize_variables)
-        if args.bool_load_model:
+        if args.bool_load_model and os.path.exists(path_save+"/checkpoint"):
             network.saver.restore(sess, path_save)
             print("Model restored!")
         if args.bool_pretrain:
