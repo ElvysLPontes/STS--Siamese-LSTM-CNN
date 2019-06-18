@@ -11,14 +11,17 @@ import scipy.stats as meas
 import numpy as np
 from tqdm import tqdm
 
+def str2bool(v):
+    return v.lower() in ("yes", "true", "t", "1")
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--bool_load_model", type=bool, default=False,
+parser.add_argument("--bool_load_model", type=str2bool, default=False,
                     help="Bool to load a pretrained model.")
-parser.add_argument("--bool_pretrain", type=bool, default=True,
+parser.add_argument("--bool_pretrain", type=str2bool, default=True,
                     help="Bool to pretrain the system.")
-parser.add_argument("--bool_train", type=bool, default=True,
+parser.add_argument("--bool_train", type=str2bool, default=True,
                     help="Bool to train the system.")
-parser.add_argument("--bool_test", type=bool, default=True,
+parser.add_argument("--bool_test", type=str2bool, default=True,
                     help="Bool to test the system.")
 parser.add_argument("--batch_size", type=int, default=32,
                     help="Batch size")
@@ -178,7 +181,8 @@ def main():
         if args.bool_test:
             # Testing network
             print("Test network ...")
-            test_network(sess, network, test)
+            loss, prediction, reference = test_network(sess, network, test)
+            correlation = calculate_correlation(prediction, reference)
 
 if __name__ == '__main__':
     main()
