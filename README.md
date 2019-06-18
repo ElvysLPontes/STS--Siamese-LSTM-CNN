@@ -74,10 +74,10 @@ options:
 
 ## Learn more
 ------------------------
-We've published a paper about this system at TALN 2018 - please reference it if you use or want to refer to our system in one of your publications.
+We published a paper about this system at TALN 2018 - please reference it if you use or want to refer to our system in one of your publications.
 
 Linhares Pontes, Elvys; Huet, Stéphane; Linhares, Andréa Carneiro; Torres-Moreno, Juan-Manuel. Predicting the Semantic Textual Similarity with Siamese CNN and LSTM. 25e Conférence sur le Traitement Automatique des Langues Naturelles (TALN) 2018.
 
-    Link: https://hal.archives-ouvertes.fr/hal-01779457/document
+    Link: https://hal.archives-ouvertes.fr/hal-01779457/
 
 
