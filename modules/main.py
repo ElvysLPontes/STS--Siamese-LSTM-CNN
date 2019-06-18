@@ -182,7 +182,7 @@ def main():
             # Testing network
             print("Test network ...")
             loss, prediction, reference = test_network(sess, network, test)
-            correlation = calculate_correlation(prediction, reference)
+            calculate_correlation(prediction, reference)
 
 if __name__ == '__main__':
     main()
