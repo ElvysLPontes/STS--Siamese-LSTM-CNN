@@ -15,7 +15,7 @@ def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--bool_load_model", type=str2bool, default=False,
+parser.add_argument("--bool_load_model", type=str2bool, default=True,
                     help="Bool to load a pretrained model.")
 parser.add_argument("--bool_pretrain", type=str2bool, default=True,
                     help="Bool to pretrain the system.")
