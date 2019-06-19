@@ -89,7 +89,6 @@ class SiameseLSTMCNN:
                     outputs, state = \
                         tf.nn.dynamic_rnn(
                             lstm_cell, sentence, sequence_length=seqlen, dtype=tf.float32)
-                    #outputs = tf.concat(outputs,2)
                     return extract_axis_1(outputs, seqlen - 1)
 
                 lstm_cell = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(
