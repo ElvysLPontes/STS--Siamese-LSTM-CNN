@@ -85,7 +85,7 @@ class SiameseLSTMCNN:
 
                     return res
 
-                def lstm(sentence, lstm_cell, lstm_cell_b, seqlen):
+                def lstm(sentence, lstm_cell, seqlen):
                     outputs, state = \
                         tf.nn.dynamic_rnn(
                             lstm_cell, sentence, sequence_length=seqlen, dtype=tf.float32)
@@ -95,17 +95,14 @@ class SiameseLSTMCNN:
                 lstm_cell = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(
                             [tf.contrib.rnn.BasicLSTMCell(self.sentence_emb_size, forget_bias=self.forget_bias)
                                 for _ in range(self.number_of_layers)]), state_keep_prob=dropout, variational_recurrent=True, dtype=tf.float32, input_size=self.word_emb_size)
-                lstm_cell_b = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(
-                            [tf.contrib.rnn.BasicLSTMCell(self.sentence_emb_size, forget_bias=self.forget_bias)
-                                for _ in range(self.number_of_layers)]), state_keep_prob=dropout, variational_recurrent=True, dtype=tf.float32, input_size=self.word_emb_size)
 
                 # Sentence x1
                 x1 = tf.concat([self.iter_x1, self.local_context_x1], axis=2)
-                lstm_outputs_1 = lstm(x1, lstm_cell , lstm_cell_b, self.iter_len1)
+                lstm_outputs_1 = lstm(x1, lstm_cell, self.iter_len1)
                 self.sentence_embedding_1 = lstm_outputs_1
                 # Sentence x2
                 x2 = tf.concat([self.iter_x2, self.local_context_x2], axis=2)
-                lstm_outputs_2 = lstm(x2, lstm_cell , lstm_cell_b, self.iter_len2)
+                lstm_outputs_2 = lstm(x2, lstm_cell, self.iter_len2)
                 self.sentence_embedding_2 = lstm_outputs_2
                 # Calculate the similarity of pairs of sentences
                 dif             = tf.norm( tf.subtract(self.sentence_embedding_1, self.sentence_embedding_2), ord=1, axis=1 )
